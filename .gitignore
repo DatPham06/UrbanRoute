@@ -1,0 +1,17 @@
+node_modules/
+build/
+dist/
+coverage/
+target/
+.m2/
+backend/.mvn/tooling/
+backend/.mvn/wrapper/*.zip
+.DS_Store
+*.log
+.env*
+!.env.example
+/.aistudio/
+/.gmp_cache/
+/frontend-github/
+.idea/
+.vscode/

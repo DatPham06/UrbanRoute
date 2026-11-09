@@ -1,0 +1,3 @@
+backend/Procfile text eol=lf
+backend/mvnw text eol=lf
+backend/start-heroku.sh text eol=lf

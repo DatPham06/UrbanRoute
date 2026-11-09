@@ -1,0 +1,1 @@
+web: bash start-heroku.sh target/urbanroute-backend-0.0.1-SNAPSHOT.jar

@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: urbanroute-backend
+  config:
+    import: optional:file:./.env[.properties]
+  datasource:
+    url: ${DB_URL:jdbc:oracle:thin:@//localhost:1521/URBANROUTE}
+    username: ${DB_USERNAME:urbanroute}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 10000
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    clean-disabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
+  auth:
+    jwt-secret: ${JWT_SECRET}
+    issuer: urbanroute-api
+    token-ttl: ${JWT_TOKEN_TTL:1h}
+  demo-data:
+    enabled: ${APP_DEMO_DATA_ENABLED:false}
